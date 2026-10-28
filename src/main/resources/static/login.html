@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6fb">
+  <title>Sign in — Campusly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/login.css">
+  <script src="/assets/login.js" defer></script>
+</head>
+<body>
+  <main class="login-layout">
+    <section class="login-story">
+      <a class="brand" href="/login" aria-label="Campusly">
+        <span class="brand-mark">c<span>.</span></span>
+        <span class="brand-name">campusly<span>.</span></span>
+      </a>
+      <div class="story-copy">
+        <span class="story-kicker"><span>✦</span> YOUR CAMPUS, IN SYNC</span>
+        <h1>Everything campus.<br><em>One bright place.</em></h1>
+        <p>Bring your people, places and learning together with a calmer way to manage campus life.</p>
+        <div class="story-art" aria-hidden="true">
+          <div class="story-orbit story-orbit-one"></div>
+          <div class="story-orbit story-orbit-two"></div>
+          <div class="story-sun">✦</div>
+          <div class="story-building"><i></i><i></i><i></i><i></i><b></b></div>
+          <div class="story-plant plant-left">⌁</div>
+          <div class="story-plant plant-right">⌁</div>
+          <div class="floating-note note-top"><span>✳</span> Campus life, simplified</div>
+          <div class="floating-note note-bottom"><span>●</span> Your campus is ready</div>
+        </div>
+      </div>
+      <div class="story-footer"><span>© Campusly</span><span>Made for campus communities <b>♥</b></span></div>
+    </section>
+
+    <section class="login-side">
+      <div class="login-card">
+        <div class="mobile-brand">
+          <span class="brand-mark">c<span>.</span></span>
+          <span class="brand-name">campusly<span>.</span></span>
+        </div>
+        <div class="login-icon">✦</div>
+        <p class="eyebrow">WELCOME TO CAMPUSLY</p>
+        <h2>Sign in to your campus</h2>
+        <p class="login-subtitle">Use your Google account to securely access your campus workspace.</p>
+        <div class="login-error" id="login-error" role="alert" hidden></div>
+        <a class="google-button" id="google-button" href="/auth/google" aria-label="Continue with Google">
+          <svg aria-hidden="true" viewBox="0 0 48 48" width="21" height="21">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" transform="translate(0 3)"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.72 7.18l7.62 5.91c4.45-4.11 7.14-10.16 7.14-17.56z" transform="translate(0 1)"/>
+            <path fill="#FBBC05" d="M10.53 28.59a14.4 14.4 0 0 1 0-9.18l-7.98-6.19a23.9 23.9 0 0 0 0 21.56l7.98-6.19z" transform="translate(0 2)"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.9-5.8l-7.62-5.91c-2.12 1.43-4.84 2.28-8.28 2.28-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" transform="translate(0 -2)"/>
+          </svg>
+          <span>Continue with Google</span>
+          <span class="google-arrow">↗</span>
+        </a>
+        <div class="secure-note"><span class="secure-lock">♢</span><span>Your sign-in is protected by Google.<br>Campusly never sees your Google password.</span></div>
+        <div class="setup-note" id="setup-note" hidden>
+          <strong>Google sign-in needs setup</strong>
+          <span>Add your Google OAuth client ID and secret to the server environment, then restart the app. See the setup steps in the project README.</span>
+        </div>
+        <p class="privacy-note">By continuing, you agree to use this campus workspace responsibly.</p>
+      </div>
+      <div class="side-footer"><span>Simple tools. Better campus days.</span><span>Privacy&nbsp; · &nbsp;Help</span></div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6f2">
+  <title>Campusly — Smart Campus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" data-view="overview" aria-label="Campusly home">
+        <span class="brand-mark">c<span>.</span></span>
+        <span class="brand-name">campusly<span class="brand-dot">.</span></span>
+      </a>
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="navigation" aria-label="Main navigation">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">◫</span> Overview</button>
+        <div class="nav-label nav-label-spaced">CAMPUS</div>
+        <button class="nav-item" data-view="students"><span class="nav-icon">♙</span> Students</button>
+        <button class="nav-item" data-view="faculty"><span class="nav-icon">♧</span> Faculty</button>
+        <button class="nav-item" data-view="courses"><span class="nav-icon">▤</span> Courses</button>
+        <button class="nav-item" data-view="resources"><span class="nav-icon">⌂</span> Resources</button>
+        <button class="nav-item" data-view="activities"><span class="nav-icon">✳</span> Activities</button>
+        <div class="nav-label nav-label-spaced">OPERATIONS</div>
+        <button class="nav-item" data-view="bookings"><span class="nav-icon">▦</span> Bookings</button>
+        <button class="nav-item" data-view="enrollments"><span class="nav-icon">⇄</span> Enrollments</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="campus-card">
+          <span class="campus-card-icon">✦</span>
+          <div><strong>Your campus, connected.</strong><span>One place for everything.</span></div>
+        </div>
+        <div class="profile">
+          <div class="avatar" id="profile-avatar">SC</div>
+          <div class="profile-copy"><strong id="profile-name">Campus Admin</strong><span id="profile-email">Administrator</span></div>
+          <button class="profile-more" id="logout-button" type="button" aria-label="Sign out" title="Sign out">↪</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="breadcrumb"><span>Workspace</span><span class="breadcrumb-divider">/</span><strong id="breadcrumb-current">Overview</strong></div>
+        <div class="topbar-actions">
+          <span class="today" id="today-label"></span>
+          <div class="global-search-wrap">
+            <label class="global-search" for="global-search"><span>⌕</span><input id="global-search" type="search" placeholder="Find anything..." autocomplete="off"><kbd>⌘ K</kbd></label>
+            <div class="global-search-results" id="global-search-results" hidden></div>
+          </div>
+          <button class="icon-button theme-toggle" id="theme-toggle" title="Switch to dark theme" aria-label="Switch to dark theme">☾</button>
+          <button class="icon-button" id="export-button" title="Export students to CSV" aria-label="Export students to CSV">⇩</button>
+          <div class="top-avatar" id="top-avatar">SC</div>
+        </div>
+      </header>
+      <section class="page-content">
+        <div class="page-heading">
+          <div><p class="eyebrow" id="page-eyebrow">CAMPUS AT A GLANCE</p><h1 id="page-title">Good day, Admin <span class="wave">✳</span></h1><p class="page-subtitle" id="page-subtitle">Here’s what’s happening across your campus today.</p></div>
+          <button class="button button-primary" id="primary-action"><span>＋</span> <span id="primary-action-label">Add student</span></button>
+        </div>
+        <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+        <div id="dashboard-view">
+          <section class="welcome-banner">
+            <div class="welcome-copy">
+              <span class="welcome-kicker"><span class="sparkle">✦</span> YOUR CAMPUS, IN SYNC</span>
+              <h2>A brighter way to<br>run your campus.</h2>
+              <p>Bring people, spaces and learning together in one place.</p>
+              <button class="welcome-button" data-add="activities">＋ Plan a campus activity</button>
+            </div>
+            <div class="welcome-art" aria-hidden="true">
+              <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+              <div class="art-sun">✦</div><div class="art-building"><span></span><span></span><span></span><span></span></div>
+              <div class="art-leaf leaf-one">⌁</div><div class="art-leaf leaf-two">⌁</div>
+              <div class="art-caption"><span class="art-caption-dot"></span> Campus is looking good</div>
+            </div>
+            <div class="welcome-sticker">MAKE<br>IT HAPPEN <span>↗</span></div>
+          </section>
+          <div class="stats-grid" id="stats-grid"></div>
+          <section class="quick-actions-panel">
+            <div class="quick-actions-title"><span class="quick-actions-icon">✳</span><div><strong>Quick actions</strong><small>Little things that keep campus moving</small></div></div>
+            <div class="quick-actions">
+              <button class="quick-action action-student" data-add="students"><span>♙</span><b>Add a student</b><i>↗</i></button>
+              <button class="quick-action action-course" data-add="courses"><span>▤</span><b>Create a course</b><i>↗</i></button>
+              <button class="quick-action action-resource" data-add="resources"><span>⌂</span><b>Add a resource</b><i>↗</i></button>
+              <button class="quick-action action-booking" data-add="bookings"><span>▦</span><b>Book a space</b><i>↗</i></button>
+            </div>
+          </section>
+          <div class="analytics-grid">
+            <section class="panel analytics-panel pulse-panel">
+              <div class="panel-heading"><div><p class="eyebrow">CAMPUS PULSE</p><h2>Everything in one view</h2></div><span class="analytics-badge">LIVE SNAPSHOT</span></div>
+              <div class="pulse-chart">
+                <div class="chart-y-labels"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div>
+                <div class="chart-plot">
+                  <div class="chart-grid-lines"><i></i><i></i><i></i><i></i><i></i></div>
+                  <div id="pulse-bars" class="pulse-bars" role="img" aria-label="Campus records summary"></div>
+                </div>
+              </div>
+              <div id="pulse-legend" class="pulse-legend"></div>
+            </section>
+            <section class="panel analytics-panel schedule-panel">
+              <div class="panel-heading"><div><p class="eyebrow">UP NEXT</p><h2>Campus calendar</h2></div><button class="text-button" data-view="bookings">View schedule <span>↗</span></button></div>
+              <div id="upcoming-list" class="upcoming-list"></div>
+            </section>
+          </div>
+          <div class="dashboard-grid">
+            <section class="panel overview-panel">
+              <div class="panel-heading"><div><p class="eyebrow">CAMPUS DIRECTORY</p><h2>People & learning</h2></div><span class="panel-icon">✳</span></div>
+              <div class="overview-links">
+                <button class="overview-link" data-view="students"><span class="link-icon icon-peach">♙</span><span><strong>Student directory</strong><small>Manage the student community</small></span><b id="overview-students">0</b><span class="link-arrow">↗</span></button>
+                <button class="overview-link" data-view="faculty"><span class="link-icon icon-purple">♧</span><span><strong>Faculty members</strong><small>Your teaching community</small></span><b id="overview-faculty">0</b><span class="link-arrow">↗</span></button>
+                <button class="overview-link" data-view="courses"><span class="link-icon icon-blue">▤</span><span><strong>Courses</strong><small>Classes and assignments</small></span><b id="overview-courses">0</b><span class="link-arrow">↗</span></button>
+              </div>
+            </section>
+            <section class="panel overview-panel">
+              <div class="panel-heading"><div><p class="eyebrow">CAMPUS LIFE</p><h2>Spaces & events</h2></div><span class="panel-icon panel-icon-gold">✦</span></div>
+              <div class="overview-links">
+                <button class="overview-link" data-view="resources"><span class="link-icon icon-green">⌂</span><span><strong>Campus resources</strong><small>Rooms, labs and equipment</small></span><b id="overview-resources">0</b><span class="link-arrow">↗</span></button>
+                <button class="overview-link" data-view="activities"><span class="link-icon icon-yellow">✳</span><span><strong>Activities & events</strong><small>What’s happening on campus</small></span><b id="overview-activities">0</b><span class="link-arrow">↗</span></button>
+                <button class="overview-link" data-view="bookings"><span class="link-icon icon-pink">▦</span><span><strong>Resource bookings</strong><small>Spaces reserved by your community</small></span><b id="overview-bookings">0</b><span class="link-arrow">↗</span></button>
+              </div>
+            </section>
+          </div>
+          <div class="insights-grid">
+            <section class="panel insight-panel activities-insight">
+              <div class="panel-heading"><div><p class="eyebrow">WHAT'S ON</p><h2>Campus moments</h2></div><button class="text-button" data-view="activities">All activities <span>↗</span></button></div>
+              <div id="activity-preview" class="activity-preview"></div>
+            </section>
+            <section class="panel insight-panel resources-insight">
+              <div class="panel-heading"><div><p class="eyebrow">YOUR SPACES</p><h2>Resource mix <span class="total-pill" id="resource-total">0</span></h2></div><button class="text-button" data-view="resources">View spaces <span>↗</span></button></div>
+              <div id="resource-breakdown" class="resource-breakdown"></div>
+              <button class="resource-cta" data-add="resources"><span>＋</span> Add a campus resource</button>
+            </section>
+          </div>
+          <section class="panel recent-panel">
+            <div class="panel-heading"><div><p class="eyebrow">QUICK ACCESS</p><h2>Course enrollments</h2></div><button class="text-button" data-view="enrollments">Manage enrollments <span>↗</span></button></div>
+            <p class="empty-state" id="recent-enrollments">No course enrollments yet. Add a course and student to get started.</p>
+          </section>
+          <footer class="page-footer"><span><span class="status-dot"></span> All systems operational</span><span>Smart Campus Management · Local workspace</span></footer>
+        </div>
+        <section id="records-view" hidden>
+          <div class="panel records-panel">
+            <div class="records-toolbar"><div class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="Search records..." autocomplete="off"></div><span class="record-count" id="record-count"></span></div>
+            <div class="table-wrap"><table><thead id="table-head"></thead><tbody id="table-body"></tbody></table></div>
+            <div class="table-empty" id="table-empty" hidden><span>⌕</span><strong>No records found</strong><small>Try a different search or add a new record.</small></div>
+          </div>
+          <footer class="page-footer"><span><span class="status-dot"></span> All systems operational</span><span>Smart Campus Management · Local workspace</span></footer>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="record-dialog" class="record-dialog">
+    <form id="record-form" method="dialog">
+      <div class="dialog-heading"><div><p class="eyebrow" id="dialog-eyebrow">NEW RECORD</p><h2 id="dialog-title">Add student</h2></div><button type="button" class="close-button" id="close-dialog" aria-label="Close dialog">×</button></div>
+      <div id="form-fields" class="form-fields"></div>
+      <div class="dialog-actions"><button type="button" class="button button-secondary" id="cancel-dialog">Cancel</button><button type="submit" class="button button-primary" id="save-button">Save record</button></div>
+    </form>
+  </dialog>
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

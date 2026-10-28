@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: smart-campus-management
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: CAMPUS_DB_URL
+        value: jdbc:sqlite:data/campus.db
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_REDIRECT_URI
+        sync: false
