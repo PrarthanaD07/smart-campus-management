@@ -23,7 +23,7 @@ The included `render.yaml` configures a free Docker web service and health check
 
 1. Push this project to a GitHub repository, then create a new **Blueprint** in Render and connect that repository. Render will use `render.yaml`; review the selected plan before confirming.
 2. Set `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in the Render environment. These are prompted as secret values when creating the Blueprint or can be set later under the service's **Environment** settings.
-3. After Render gives the service its `https://<service-name>.onrender.com` URL, set `GOOGLE_REDIRECT_URI` to `https://<service-name>.onrender.com/auth/google/callback`.
+3. This deployment's service URL is `https://smart-campus-management-x1lv.onrender.com`. Set `GOOGLE_REDIRECT_URI` in Render to `https://smart-campus-management-x1lv.onrender.com/auth/google/callback`.
 4. In Google Cloud Console, register that exact HTTPS callback URL as an authorized redirect URI for the OAuth Web application client. Add your account as a test user if the consent screen is still in testing.
 5. Redeploy after setting the environment values, then visit the Render service URL and sign in.
 
