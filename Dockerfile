@@ -9,4 +9,4 @@ WORKDIR /app
 COPY --from=build /app/target/classes ./target/classes
 COPY --from=build /app/target/dependency ./target/dependency
 ENV HOST=0.0.0.0
-CMD ["java", "-cp", "/app/target/classes:/app/target/dependency/*", "edu.smartcampus.Main"]
+CMD ["java", "-cp", "/app/target/classes:/app/target/dependency/*", "edu.smartcampus.WebMain"]
