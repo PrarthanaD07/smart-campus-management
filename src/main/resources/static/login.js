@@ -6,12 +6,6 @@ const errorMessages = {
 };
 
 const errorCode = new URLSearchParams(window.location.search).get("error");
-if (errorCode && errorMessages[errorCode]) {
-  const error = document.querySelector("#login-error");
-  error.textContent = errorMessages[errorCode];
-  error.hidden = false;
-}
-
 fetch("/auth/config")
   .then((response) => {
     if (!response.ok) throw new Error("Could not check the Google sign-in configuration.");
@@ -23,6 +17,13 @@ fetch("/auth/config")
       document.querySelector("#google-button").classList.add("disabled");
       document.querySelector("#google-button").setAttribute("aria-disabled", "true");
       document.querySelector("#google-button").addEventListener("click", (event) => event.preventDefault());
+      return;
+    }
+
+    if (errorCode && errorMessages[errorCode]) {
+      const error = document.querySelector("#login-error");
+      error.textContent = errorMessages[errorCode];
+      error.hidden = false;
     }
   })
   .catch(() => {
